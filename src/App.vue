@@ -2,19 +2,26 @@
   <div id="app">
     <Header/>
     <Main msg="Idea Markets"/>
-
-    <Chart/>
-    <State/>
-    <Login/>
-    <Pay/>
-    <CardPay/>
-    <EthPay/>
-    <Review/>
-    <LogOut/>
-    <div>
-    <h3>Non-custodial & Secure</h3>
-    <p>We do not own your private keys and cannot access your funds without your permission</p>
-    </div>
+    <b-container>
+      <b-row cols="2">
+          <b-col>
+            <Chart/>
+          </b-col>
+          <b-col>
+              <Account/>
+              <Login/>
+              <Pay/>
+              <CardPay/>
+              <EthPay/>
+              <Review/>
+              <LogOut/>
+              <b-container>
+                <h3>Non-custodial & Secure</h3>
+                <p>We do not own your private keys and cannot access your funds without your permission</p>
+              </b-container>
+          </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
@@ -26,7 +33,7 @@ import Login from './components/Login.vue'
 import LogOut from './components/LogOut.vue'
 import Pay from './components/Pay.vue'
 import Review from './components/Review.vue'
-import State from './components/State.vue'
+import Account from './components/Account.vue'
 import Chart from './components/Chart.vue'
 
 export default {
@@ -39,7 +46,7 @@ export default {
     LogOut,
     Pay,
     Review,
-    State,
+    Account,
     Chart
   }
 }
