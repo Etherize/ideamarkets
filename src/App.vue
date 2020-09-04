@@ -5,17 +5,18 @@
     <b-container>
       <b-row cols="2">
           <b-col>
-            <Chart/>
+            <ChartContainer/>
           </b-col>
           <b-col>
               <Account/>
+              <Status/>
               <Login/>
               <Pay/>
               <CardPay/>
               <EthPay/>
               <Review/>
               <LogOut/>
-              <b-container>
+              <b-container class="footer">
                 <h3>Non-custodial & Secure</h3>
                 <p>We do not own your private keys and cannot access your funds without your permission</p>
               </b-container>
@@ -34,7 +35,8 @@ import LogOut from './components/LogOut.vue'
 import Pay from './components/Pay.vue'
 import Review from './components/Review.vue'
 import Account from './components/Account.vue'
-import Chart from './components/Chart.vue'
+import ChartContainer from './components/ChartContainer.vue'
+import Status from './components/Status.vue'
 
 export default {
   name: 'App',
@@ -47,7 +49,8 @@ export default {
     Pay,
     Review,
     Account,
-    Chart
+    ChartContainer,
+    Status
   }
 }
 </script>
@@ -60,5 +63,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background-color: #0360fe;
 }
 </style>

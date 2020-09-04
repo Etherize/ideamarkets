@@ -1,7 +1,6 @@
 <template>
   <b-container>
-    <p> <i>TODO: Only Show This Header After Logging In</i></p>
-    <b-row cols="4">
+    <b-row cols="3">
       <b-col>
         <p>Eth: 1.1</p>
       </b-col>
@@ -9,10 +8,7 @@
         <p>DAI: 25</p>
       </b-col>
       <b-col>
-        <p> 0x38e...A83C</p>
-      </b-col>
-      <b-col>
-        <button>Log Out</button>
+        <button> 0x38e...A83C</button>
       </b-col>
     </b-row>
   </b-container>

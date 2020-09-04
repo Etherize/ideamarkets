@@ -1,18 +1,60 @@
 <template>
-  <div>
-    <h1>Pay Options Go Here</h1>
-    <button>Buy with Debit Card (Wyre)</button>
-    <button>Buy with Ether</button>
-  </div>
+  <b-container>
+    <b-row>
+    <button v-on:click='payCard' class='pay_option_btn'>
+      <img src='@/assets/logo.png' class='pay_option_btn_img'/>
+      <div class='pay_option_btn_txt'>Credit / Debit Card</div>
+    </button>
+  </b-row>
+  <b-row>
+    <button v-on:click='payApple' class='pay_option_btn'>
+      <img src='@/assets/logo.png' class='pay_option_btn_img'/>
+      <div class='pay_option_btn_txt'>Apple Pay</div>
+    </button>
+    </b-row>
+    <b-row>
+    <button v-on:click='payEth' class='pay_option_btn'>
+      <img src='@/assets/logo.png' class='pay_option_btn_img'/>
+      <div class='pay_option_btn_txt'>Ethereum</div>
+    </button>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
 export default {
   name: 'Pay',
+  methods: {
+    payCard: function() {
+      alert("Pay with Card Coming Soon");
+    },
+    payApple: function() {
+      alert("Apple Pay Coming Soon");
+    },
+    payEth: function() {
+      alert("Pay in Ether Coming Soon");
+    }
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.pay_option_btn {
+  width: 350px;
+  height: 54px;
+  border-radius: 15px;
+  background-color: white;
+  border: 0;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  float: left;
+}
 
+.pay_option_btn_img {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+}
 </style>

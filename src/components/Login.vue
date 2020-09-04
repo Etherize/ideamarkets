@@ -43,15 +43,15 @@ export default {
     },
 
     onSubmitMW: function() {
-      alert("This is Mobile Wallet Login");
+      alert("Mobile Wallet Coming Soon");
     },
 
     onSubmitMT: function() {
-      alert("This is Metamask Login");
+      alert("MetaMask Login Coming Soon");
     },
 
     onSubmitCW: function() {
-      alert("This is Coinbase Wallet Login");
+      alert("Coinbase Wallet Coming Soon");
     }
   }
 }
@@ -60,7 +60,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .login_main_area {
-  height: 100vh;
   background-color: #0360fe;
   padding: 50px;
 }

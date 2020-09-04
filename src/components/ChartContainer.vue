@@ -2,7 +2,7 @@
   <div class="container">
     <div v-if="$apollo.loading">Loading..</div>
     <div v-else>
-    </div>
+
   </div>
 </template>
 
