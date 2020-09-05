@@ -6,6 +6,7 @@
       <b-row cols="2">
           <b-col>
             <ChartContainer/>
+
           </b-col>
           <b-col>
               <Account/>
@@ -37,6 +38,7 @@ import Review from './components/Review.vue'
 import Account from './components/Account.vue'
 import ChartContainer from './components/ChartContainer.vue'
 import Status from './components/Status.vue'
+
 
 export default {
   name: 'App',
