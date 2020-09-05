@@ -1,20 +1,66 @@
 <template>
   <div class="container">
+    <line-chart
+      :width="500"
+      :height="300"
+      :labels="['', '', '', '', '']"
+      :options="$options.options"
+      :datasets="$options.datasets"
+    ></line-chart>
+    <canvas ref="myChart" width="500" height="300"></canvas>
     <div v-if="$apollo.loading">Loading..</div>
     <div v-else>
-
+          <h1>Loaded: {{viewer}}</h1>
   </div>
+</div>
 </template>
 
 <script>
 import { gql } from "apollo-boost";
+import LineChart from './LineChart';
+
+const options = {
+    scales: {
+        xAxes: [{
+            gridLines: {
+                display:false
+            }
+        }],
+        yAxes: [{
+            gridLines: {
+                display:false
+            },
+            display: false
+        }],
+
+    }
+}
+
+
+const datasets = [
+  {
+    label: '$COINDESK(+12%)',
+    data: [300, 500, 450, 550, 470],
+    backgroundColor: 'rgba(0, 0, 255, 0)',
+    borderColor: 'rgba(255, 255, 255, .8)'
+  }
+];
+
 export default {
+  name: 'ChartContainer',
+  datasets,
+  options,
+  components: {
+    LineChart
+  },
   data: function() {
     return {
         //query data is added
       viewer: {}
     };
   },
+
+
   apollo: {
       //this query will update the `viewer` data property
     viewer: {
@@ -31,8 +77,8 @@ export default {
         }
        }
       `
-
     }
-  }
+  },
 };
+
 </script>
