@@ -32,7 +32,8 @@ export default {
     // The chart's options.
     options: {
       title: {
-        fontColor: "white"
+          display: false,
+          text: 'Custom Chart Title'
       }
     }
   },

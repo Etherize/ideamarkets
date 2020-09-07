@@ -8,10 +8,7 @@
       :datasets="$options.datasets"
     ></line-chart>
     <canvas ref="myChart" width="500" height="300"></canvas>
-    <div v-if="$apollo.loading">Loading..</div>
-    <div v-else>
-          <h1>Loaded: {{viewer}}</h1>
-  </div>
+    <div v-if="$apollo.loading">Loading GraphQL..</div>
 </div>
 </template>
 
@@ -39,7 +36,8 @@ const options = {
 
 const datasets = [
   {
-    label: '$COINDESK(+12%)',
+    label: '',
+    labelColor: 'white',
     data: [300, 500, 450, 550, 470],
     backgroundColor: 'rgba(0, 0, 255, 0)',
     borderColor: 'rgba(255, 255, 255, .8)'

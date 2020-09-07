@@ -52,11 +52,6 @@ export default {
       window.web3 = new Web3(fm.getProvider());
       let web3 =  window.web3;
       console.log(web3.eth.accounts);
-
-
-
-
-
     },
 
     onSubmitMW: function() {

@@ -24,15 +24,10 @@
 
 <script>
 import Main from './components/Main.vue'
-import CardPay from './components/CardPay.vue'
-import EthPay from './components/EthPay.vue'
-import Login from './components/Login.vue'
-import Pay from './components/Pay.vue'
 import Review from './components/Review.vue'
 import Account from './components/Account.vue'
 import ChartContainer from './components/ChartContainer.vue'
 import LoginProgress from './components/LoginProgress.vue'
-import Review from './components/Review.vue'
 
 
 export default {
