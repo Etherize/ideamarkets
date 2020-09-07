@@ -16,7 +16,6 @@
               <CardPay/>
               <EthPay/>
               <Review/>
-              <LogOut/>
               <b-container class="footer">
                 <h3>Non-custodial & Secure</h3>
                 <p>We do not own your private keys and cannot access your funds without your permission</p>
@@ -32,7 +31,6 @@ import Main from './components/Main.vue'
 import CardPay from './components/CardPay.vue'
 import EthPay from './components/EthPay.vue'
 import Login from './components/Login.vue'
-import LogOut from './components/LogOut.vue'
 import Pay from './components/Pay.vue'
 import Review from './components/Review.vue'
 import Account from './components/Account.vue'
@@ -47,7 +45,6 @@ export default {
     CardPay,
     EthPay,
     Login,
-    LogOut,
     Pay,
     Review,
     Account,

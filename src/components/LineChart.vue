@@ -6,7 +6,7 @@
 import Chart from 'chart.js';
 
 export default {
-  name: 'monthly-sales-chart',
+  name: 'LineChart',
   props: {
     // The canvas's width.
     width: {
@@ -22,15 +22,19 @@ export default {
 
     // The chart's data.labels
     labels: Array,
-
     // The chart's data.datasets
+
     datasets: {
       type: Array,
-      required: true
+      required: true,
     },
 
     // The chart's options.
-    options: Object
+    options: {
+      title: {
+        fontColor: "white"
+      }
+    }
   },
   mounted() {
     new Chart(this.$refs.myChart, {

@@ -2,7 +2,7 @@
   <div class='login_main_area'>
     <div class='login_input_area'>
         <input v-model='emailValue' type='email' class='login_input' placeholder="email">
-        <button v-on:click='onSubmit' type='submit' class='login_input_submit'>
+        <button v-on:click='onSubmitMagic' type='submit' class='login_input_submit'>
           <img src='@/assets/logo.png' class='login_input_btn_img'/>
         </button>
     </div>
@@ -29,6 +29,12 @@
 </template>
 
 <script>
+
+import Fortmatic from 'fortmatic';
+import Web3 from 'web3';
+
+
+
 export default {
   name: 'Login',
   data() {
@@ -38,8 +44,19 @@ export default {
     }
   },
   methods: {
-    onSubmit: function() {
-      alert(this.emailValue);
+    //TODO: Convert this into an async method https://medium.com/swlh/how-to-use-async-and-await-with-vue-js-apps-33132aa0838b
+    //
+    async onSubmitMagic() {
+      console.log(this.emailValue);
+      const fm = new Fortmatic('pk_test_FDABC9E0FE176C29');
+      window.web3 = new Web3(fm.getProvider());
+      let web3 =  window.web3;
+      console.log(web3.eth.accounts);
+
+
+
+
+
     },
 
     onSubmitMW: function() {
