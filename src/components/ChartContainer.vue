@@ -1,5 +1,9 @@
 <template>
-  <div class="container">
+  <b-container>
+    <b-row class="graphTitle">
+      $COINDESK(+14%)
+    </b-row>
+    <b-row>
     <line-chart
       :width="500"
       :height="300"
@@ -7,9 +11,43 @@
       :options="$options.options"
       :datasets="$options.datasets"
     ></line-chart>
-    <canvas ref="myChart" width="500" height="300"></canvas>
     <div v-if="$apollo.loading">Loading GraphQL..</div>
-</div>
+  </b-row>
+  <b-row cols="4">
+    <b-col>
+      <b-row>
+          <p class="topText">Trading At</p>
+      </b-row>
+      <b-row>
+        <p class="bottomText>">$3.14</p>
+      </b-row>
+    </b-col>
+    <b-col>
+      <b-row>
+          <p class="topText">Total Locked</p>
+      </b-row>
+      <b-row>
+        <p class="bottomText>">$1.3M</p>
+      </b-row>
+    </b-col>
+    <b-col>
+      <b-row>
+          <p class="topText">Holders</p>
+      </b-row>
+      <b-row>
+        <p class="bottomText>">1.2k</p>
+      </b-row>
+    </b-col>
+    <b-col>
+      <b-row>
+          <p class="topText">Rank</p>
+      </b-row>
+      <b-row>
+        <p class="bottomText>">3</p>
+      </b-row>
+    </b-col>
+  </b-row>
+</b-container>
 </template>
 
 <script>
