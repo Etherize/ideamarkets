@@ -4,33 +4,26 @@
         <div v-if="$store.state.loginStep === 0">
             <Login/>
         </div>
-        <div v-else-if="$store.state.loginStep === 1">
+        <div v-if="$store.state.loginStep === 1">
             <Pay/>
         </div>
-        <div v-else>
-            <div v-if="$store.state.paymentType === 0">
-                <CardPay/>
-            </div>
-            <div v-else>
-                <EthPay/>
-            </div>
+        <div v-if="$store.state.loginStep === 2">
+            <Review/>
         </div>
   </div>
 </template>
 
 <script>
-import CardPay from './CardPay.vue'
-import EthPay from './EthPay.vue'
 import Login from './Login.vue'
 import Pay from './Pay.vue'
+import Review from './Review.vue'
 import Status from './Status.vue'
 
 
 export default {
   name: 'LoginProgress',
   components: {
-    CardPay,
-    EthPay,
+    Review,
     Login,
     Pay,
     Status

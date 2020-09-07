@@ -11,7 +11,7 @@
           <b-col>
               <Account/>
               <LoginProgress/>
-              <Review/>
+
               <b-container class="footer">
                 <h3>Non-custodial & Secure</h3>
                 <p>We do not own your private keys and cannot access your funds without your permission</p>
@@ -24,7 +24,6 @@
 
 <script>
 import Main from './components/Main.vue'
-import Review from './components/Review.vue'
 import Account from './components/Account.vue'
 import ChartContainer from './components/ChartContainer.vue'
 import LoginProgress from './components/LoginProgress.vue'
@@ -36,8 +35,7 @@ export default {
     Main,
     Account,
     ChartContainer,
-    LoginProgress,
-    Review,
+    LoginProgress
   }
 }
 </script>

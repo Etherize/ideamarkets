@@ -18,6 +18,7 @@ export default {
 
     onStepTwo: function() {
       this.$store.commit('SET_LOGIN_STEP', 1);
+      this.$store.commit('SET_PAYMENT_TYPE', 0);
     },
 
     onStepThree: function() {
