@@ -11,6 +11,7 @@
           <b-col>
               <Account/>
               <LoginProgress/>
+              <review/>
               <LogOut/>
               <b-container class="footer">
                 <h3>Non-custodial & Secure</h3>
@@ -28,6 +29,7 @@ import LogOut from './components/LogOut.vue'
 import Account from './components/Account.vue'
 import ChartContainer from './components/ChartContainer.vue'
 import LoginProgress from './components/LoginProgress.vue'
+import Review from './components/Review.vue'
 
 
 export default {
@@ -37,7 +39,8 @@ export default {
     LogOut,
     Account,
     ChartContainer,
-    LoginProgress
+    LoginProgress,
+    Review,
   }
 }
 </script>

@@ -12,10 +12,10 @@
                 <CardPay/>
             </div>
             <div v-else-if="$store.state.paymentType === 1">
-                <EthPay/>
+                <CardPay/>
             </div>
             <div v-else>
-                <Review/>
+                <EthPay/>
             </div>
         </div>
   </div>
@@ -26,7 +26,6 @@ import CardPay from './CardPay.vue'
 import EthPay from './EthPay.vue'
 import Login from './Login.vue'
 import Pay from './Pay.vue'
-import Review from './Review.vue'
 import Status from './Status.vue'
 
 
@@ -37,7 +36,6 @@ export default {
     EthPay,
     Login,
     Pay,
-    Review,
     Status
   }
 }
