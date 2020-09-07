@@ -16,6 +16,9 @@ export default {
     options: {
       responsive: true,
       maintainAspectRatio: false
+      title: {
+        fontColor: "white"
+      },
     }
   }),
 
