@@ -12,7 +12,7 @@ const store = new Vuex.Store({
     SET_LOGIN_STEP: (state, step) => {
         state.loginStep = step;
     },
-    SET_PAYMENT_TYPE: (state, { type }) => {
+    SET_PAYMENT_TYPE: (state, type) => {
         state.paymentType = type;
     }
   }

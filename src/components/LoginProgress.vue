@@ -11,9 +11,6 @@
             <div v-if="$store.state.paymentType === 0">
                 <CardPay/>
             </div>
-            <div v-else-if="$store.state.paymentType === 1">
-                <CardPay/>
-            </div>
             <div v-else>
                 <EthPay/>
             </div>

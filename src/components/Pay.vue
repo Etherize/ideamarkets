@@ -26,12 +26,18 @@ export default {
   name: 'Pay',
   methods: {
     payCard: function() {
+      this.$store.commit('SET_LOGIN_STEP', 2);
+      this.$store.commit('SET_PAYMENT_TYPE', 0);
       alert("Pay with Card Coming Soon");
     },
     payApple: function() {
+      this.$store.commit('SET_LOGIN_STEP', 2);
+      this.$store.commit('SET_PAYMENT_TYPE', 0);
       alert("Apple Pay Coming Soon");
     },
     payEth: function() {
+      this.$store.commit('SET_LOGIN_STEP', 2);
+      this.$store.commit('SET_PAYMENT_TYPE', 1);
       alert("Pay in Ether Coming Soon");
     }
   }
