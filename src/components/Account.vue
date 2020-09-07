@@ -46,8 +46,15 @@
     </b-row>
   </b-container>
 </template>
-  
+
 <script>
+
+//TODO:  Make this component be hidden until there is login;
+//TODO: Add function to Disconnect button to log out of FortMagic
+//TODO: Also logout of MetaMask if applicable
+//fm.user.logout();
+// from https://repl.it/@fortmatic/demo-kitchen-sink#handlers.js
+
 export default {
   name: 'Account'
 }

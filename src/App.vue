@@ -11,8 +11,7 @@
           <b-col>
               <Account/>
               <LoginProgress/>
-              <review/>
-              <LogOut/>
+              <Review/>
               <b-container class="footer">
                 <h3>Non-custodial & Secure</h3>
                 <p>We do not own your private keys and cannot access your funds without your permission</p>
@@ -25,7 +24,6 @@
 
 <script>
 import Main from './components/Main.vue'
-import LogOut from './components/LogOut.vue'
 import Account from './components/Account.vue'
 import ChartContainer from './components/ChartContainer.vue'
 import LoginProgress from './components/LoginProgress.vue'
@@ -36,7 +34,6 @@ export default {
   name: 'App',
   components: {
     Main,
-    LogOut,
     Account,
     ChartContainer,
     LoginProgress,
@@ -46,6 +43,7 @@ export default {
 </script>
 
 <style>
+/* Make App full screen so that way there is no white margins */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
