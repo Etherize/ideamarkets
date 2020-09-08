@@ -1,9 +1,9 @@
 <template>
   <b-container>
-    <b-row class="graphTitle">
+    <b-row align-h="center" class="graphTitle">
       $COINDESK(+14%)
     </b-row>
-    <b-row>
+    <b-row class="p-5">
     <line-chart
       :width="500"
       :height="300"
@@ -12,43 +12,61 @@
       :datasets="$options.datasets"
     ></line-chart>
     <div v-if="$apollo.loading">Loading GraphQL..</div>
-  </b-row>
-  <b-row cols="4">
-    <b-col>
-      <b-row>
+    </b-row>
+    <b-row cols="4">
+      <b-col>
+        <b-row>
           <p class="topText">Trading At</p>
-      </b-row>
-      <b-row>
-        <p class="bottomText>">$3.14</p>
-      </b-row>
-    </b-col>
-    <b-col>
-      <b-row>
-          <p class="topText">Total Locked</p>
-      </b-row>
-      <b-row>
-        <p class="bottomText>">$1.3M</p>
-      </b-row>
-    </b-col>
-    <b-col>
-      <b-row>
-          <p class="topText">Holders</p>
-      </b-row>
-      <b-row>
-        <p class="bottomText>">1.2k</p>
-      </b-row>
-    </b-col>
-    <b-col>
-      <b-row>
-          <p class="topText">Rank</p>
-      </b-row>
-      <b-row>
-        <p class="bottomText>">3</p>
-      </b-row>
-    </b-col>
-  </b-row>
-</b-container>
+        </b-row>
+        <b-row>
+          <p class="bottomText">$3.14</p>
+        </b-row>
+      </b-col>
+      <b-col>
+        <b-row>
+            <p class="topText">Total Locked</p>
+        </b-row>
+        <b-row>
+          <p class="bottomText">$1.3M</p>
+        </b-row>
+      </b-col>
+      <b-col>
+        <b-row>
+            <p class="topText">Holders</p>
+        </b-row>
+        <b-row>
+          <p class="bottomText">1.2k</p>
+        </b-row>
+      </b-col>
+      <b-col>
+        <b-row>
+            <p class="topText">Rank</p>
+        </b-row>
+        <b-row>
+          <p class="bottomText">3</p>
+        </b-row>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
+
+<style>
+
+  .topText {
+    margin:0;
+    color: white;
+  }
+
+  .bottomText {
+    margin: 0;
+    color: white;
+  }
+
+  .graphTitle{
+    color: white;
+    font-size: 16pt;
+  }
+</style>
 
 <script>
 import { gql } from "apollo-boost";
@@ -59,15 +77,33 @@ const options = {
         xAxes: [{
             gridLines: {
                 display:false
+            },
+            ticks: {
+                display: false
             }
         }],
         yAxes: [{
             gridLines: {
                 display:false
             },
-            display: false
+            ticks: {
+                display: false
+            }
         }],
-
+    },
+    labels: {
+      display: false
+    },
+    legend: {
+      display: false
+    },
+    layout: {
+        padding: {
+            left: 5,
+            right: 5,
+            top: 5,
+            bottom: 5
+        }
     }
 }
 
