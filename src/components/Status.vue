@@ -30,13 +30,15 @@ export default {
 
 <style scoped>
 .status_button {
-    min-width: 126px;
-    min-height: 30px;
-    border-radius: 15px;
-    background-color: blue;
+    min-width: 108px;
+    border: none;
+    min-height: 22px;
+    border-radius: 9px;
+    background-color:	#508cfe;
   }
 
 .focus_button {
-  background-color: white;
+  background-color:	#a7c6ff;
+  border: none;
 }
 </style>
