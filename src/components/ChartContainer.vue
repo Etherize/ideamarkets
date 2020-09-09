@@ -13,7 +13,7 @@
     ></line-chart>
     <div v-if="$apollo.loading">Loading GraphQL..</div>
     </b-row>
-    <b-row cols="4">
+    <b-row cols="4" class="graph-text">
       <b-col>
         <b-row>
           <p class="topText">Trading At</p>
@@ -53,13 +53,14 @@
 <style>
 
   .topText {
-    margin:0;
+    margin:0 auto;
     color: white;
   }
 
   .bottomText {
-    margin: 0;
+    margin: 0 auto;
     color: white;
+    font-size: 1.5rem;
   }
 
   .graphTitle{

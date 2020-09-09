@@ -10,13 +10,22 @@
           <b-col class="align-self-center">
               <Account/>
               <LoginProgress/>
-
-              <b-container class="footer">
-                <h3>Non-custodial & Secure</h3>
-                <p>We do not own your private keys and cannot access your funds without your permission</p>
-              </b-container>
           </b-col>
       </b-row>
+    </b-container>
+    <b-container class="footer">
+                <b-row cols="3">
+                  <b-col cols="8" md="6">
+                  </b-col>
+                  <b-col cols="3" md="2" class="lock">
+                    <img width="75px" height="75px" src="https://www.iconsdb.com/icons/preview/white/padlock-3-xxl.png">
+                  </b-col>
+
+                  <b-col cols="4" md="4" class="footer_text">
+                    <h3>Non-custodial & Secure</h3>
+                    <p>We do not own your private keys and cannot access your funds without your permission</p>
+                  </b-col>
+                </b-row>
     </b-container>
   </div>
 </template>
@@ -61,6 +70,20 @@ export default {
   height: 75%;
   right: 0;
   top: 10%;
+}
+
+.lock{
+  text-align: right;
+}
+
+.footer{
+  padding-bottom: 1rem;
+  bottom: 0;
+}
+
+.footer_text{
+  text-align: left;
+  color: white;
 }
 
 </style>
