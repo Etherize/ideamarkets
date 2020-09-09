@@ -22,6 +22,7 @@ export default {
 
     // The chart's data.labels
     labels: Array,
+
     // The chart's data.datasets
 
     datasets: {
@@ -31,9 +32,19 @@ export default {
 
     // The chart's options.
     options: {
+      responsive: true,
+      maintainAspectRatio: false,
       title: {
           display: false,
           text: 'Custom Chart Title'
+      },
+      layout: {
+        padding: {
+            left: 5,
+            right: 5,
+            top: 5,
+            bottom: 5
+        }
       }
     }
   },

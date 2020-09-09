@@ -1,14 +1,13 @@
 <template>
   <div id="app">
-    <Header/>
     <Main msg="Idea Markets"/>
-    <b-container>
-      <b-row cols="2">
-          <b-col>
+    <b-container fluid class="d-flex h-75 my-auto mx-auto">
+      <b-row cols="2" class="mx-auto">
+          <b-col class="align-self-center borderRight">
             <ChartContainer/>
 
           </b-col>
-          <b-col>
+          <b-col class="align-self-center">
               <Account/>
               <LoginProgress/>
 
@@ -21,6 +20,7 @@
     </b-container>
   </div>
 </template>
+
 
 <script>
 import Main from './components/Main.vue'
@@ -48,7 +48,19 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-  background-color: #0360fe;
+  background-image: linear-gradient(#0044FF, #137AFF);
+  height: 100vh;
+  margin: 0;
 }
+
+.borderRight:after{
+  position: absolute;
+  content: '';
+  border-right: 8px solid white;
+  border-radius: 8px;
+  height: 75%;
+  right: 0;
+  top: 10%;
+}
+
 </style>
