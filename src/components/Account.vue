@@ -1,14 +1,14 @@
 <template>
-  <b-container>
-    <b-row cols="3">
+  <b-container style="display:flex; justify-content: space-evenly; margin-left: 20px;">
+    <b-row cols="4">
       <b-col>
-        <p>Eth: 1.1</p>
+        <p style="color: white">Eth: 1.1</p>
       </b-col>
       <b-col>
-        <p>DAI: 25</p>
+        <p style="color: white">DAI: 25</p>
       </b-col>
       <b-col>
-        <button v-b-modal.modal-account-logout> 0x38e...A83C</button>
+        <button class="connect_button" v-b-modal.modal-account-logout> 0x38e...A83C</button>
 <!-- logout modal -->
         <b-modal
           id="modal-account-logout"
@@ -62,5 +62,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+.connect_button {
+    min-width: 102px;
+    border: none;
+    outline: none;
+    min-height: 20px;
+    border-radius: 9px;
+    background-color: white;
+  }
 </style>

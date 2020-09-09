@@ -79,7 +79,7 @@ export default {
 .login_input_area {
   text-align: left;
   padding: 10px;
-  width: 377px;
+  width: 330px;
   border-bottom: 8px solid white;
 }
 
@@ -93,9 +93,10 @@ export default {
 
 .login_input:focus {
   background-color: transparent;
-  border: none;
+
   outline: none;
 }
+
 
 .login_input::placeholder {
   color: white;

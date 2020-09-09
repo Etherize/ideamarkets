@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <b-row>
-      <div class="confirm_total"> $24 <button> USD </button></div>
+      <div class="confirm_total"><button>$23.45 USD</button></div>
     </b-row>
     <b-row>
       <b-col> <h1> = </h1> </b-col>
