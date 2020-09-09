@@ -72,7 +72,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .login_main_area {
-  background-color: #0360fe;
   padding: 50px;
 }
 
