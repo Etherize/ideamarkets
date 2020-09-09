@@ -30,8 +30,8 @@
 
 <script>
 
-import Fortmatic from 'fortmatic';
-import Web3 from 'web3';
+// import Fortmatic from 'fortmatic';
+// import Web3 from 'web3';
 
 
 
@@ -47,8 +47,8 @@ export default {
     //TODO: Convert this into an async method https://medium.com/swlh/how-to-use-async-and-await-with-vue-js-apps-33132aa0838b
     //
     async onSubmitMagic() {
-      console.log(this.emailValue);
-      const fm = new Fortmatic('pk_test_FDABC9E0FE176C29');
+    //  console.log(this.emailValue);
+    //  const fm = new Fortmatic('pk_test_FDABC9E0FE176C29');
 
       //window.web3 = new Web3(fm.getProvider());
       //let web3 =  window.web3;
