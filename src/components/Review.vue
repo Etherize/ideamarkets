@@ -25,7 +25,7 @@
         <b-col>Free</b-col>
       </b-row>
       <b-row>
-        <button class="confirm_button">Purchase</button>
+        <button class="confirm_button">Continue</button>
       </b-row>
   </b-container>
 </template>

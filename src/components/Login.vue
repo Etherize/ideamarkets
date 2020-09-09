@@ -49,9 +49,10 @@ export default {
     async onSubmitMagic() {
       console.log(this.emailValue);
       const fm = new Fortmatic('pk_test_FDABC9E0FE176C29');
-      window.web3 = new Web3(fm.getProvider());
-      let web3 =  window.web3;
-      console.log(web3.eth.accounts);
+
+      //window.web3 = new Web3(fm.getProvider());
+      //let web3 =  window.web3;
+      //console.log(web3.eth.accounts);
     },
 
     onSubmitMW: function() {
