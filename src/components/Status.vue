@@ -1,5 +1,7 @@
 <template>
-  <b-container style="margin-top: 50px;" class="cool">
+  <b-container style="display: flex;
+justify-content: flex-start;
+margin-left: 30px; margin-top: 50px;">
     <b-row cols="3" >
       <b-col><button  :class="{focus_button: this.$store.state.loginStep === 0}" class="status_button" v-on:click='onStepOne'></button></b-col>
       <b-col><button  :class="{focus_button: this.$store.state.loginStep === 1}" class="status_button" v-on:click='onStepTwo'></button></b-col>
@@ -38,11 +40,6 @@ export default {
     background-color:	#508cfe;
   }
 
-.cool {
-display: flex;
-justify-content: flex-start;
-margin-left: 30px;
-}
 .focus_button {
   background-color:	#a7c6ff;
   border: none;
