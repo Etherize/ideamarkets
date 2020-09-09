@@ -9,6 +9,8 @@
 </template>
 
 <script>
+
+
 export default {
   name: 'Status',
   methods: {
@@ -24,6 +26,26 @@ export default {
     onStepThree: function() {
       this.$store.commit('SET_LOGIN_STEP', 2);
     },
+
+    listenForLogin:function(){
+      this.$store.commit('SET_LOGIN_CALLBACK', this.loggedIn)
+    },
+
+  loggedIn(address){
+    console.log("logged in with address", address);
+    // Get user balance (includes ERC20 tokens as well)
+    // let balances = await fm.user.getBalances();
+    // console.log(balances);
+    // let ethBalance = balances.find((e) => {
+    //       return e.crypto_currency == 'ETH';
+    //   });
+    // console.log(ethBalance)
+  }
+
+
+  },
+  mounted:function(){
+    this.listenForLogin();
   }
 }
 </script>
