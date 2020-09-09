@@ -1,6 +1,6 @@
 <template>
-  <b-container style="display:flex; justify-content: space-evenly; margin-left: 20px;">
-    <b-row cols="4">
+  <b-container style="display:flex; margin-left: 80px;">
+    <b-row cols="3">
       <b-col>
         <p style="color: white">Eth: 1.1</p>
       </b-col>
