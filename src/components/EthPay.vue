@@ -9,7 +9,7 @@
     <b-container>
       <b-row cols="2">
           <b-col>
-            <img src='@/assets/logo.png'/>
+            <img src='@/assets/eth-address.jpg'/>
           </b-col>
           <b-col>
             0x12321312312312f

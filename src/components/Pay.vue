@@ -22,12 +22,12 @@
           </b-row>
   </div>
 
-    <div v-if="$store.state.paymentType === 1">
+    <b-container v-if="$store.state.paymentType === 1">
        <CardPay/>
-    </div>
-    <div v-if="$store.state.paymentType === 2">
+    </b-container>
+    <b-container v-if="$store.state.paymentType === 2">
        <EthPay/>
-    </div>
+    </b-container>
 
     </b-container>
   </b-container>

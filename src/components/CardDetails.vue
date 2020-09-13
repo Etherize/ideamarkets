@@ -4,7 +4,7 @@
     <b-container>
         <b-row cols="1">
             <b-col>
-              <input v-model='cardNumValue' class='card_input' placeholder="4243 2342 2413 4324">
+              <input v-model='cardNumValue' class='card_input card-input-top' placeholder="4243 2342 2413 4324">
             </b-col>
         </b-row>
         <b-row cols="2">

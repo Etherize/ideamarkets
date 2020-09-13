@@ -28,8 +28,6 @@
 import Fortmatic from 'fortmatic';
 import Web3 from 'web3';
 
-
-
 export default {
   name: 'Login',
   data() {
@@ -39,7 +37,6 @@ export default {
     }
   },
   methods: {
-
     async onMagic(loginMethod) {
     const fm = new Fortmatic('pk_test_FDABC9E0FE176C29');
       fm.configure({ primaryLoginOption: loginMethod })
@@ -48,7 +45,7 @@ export default {
       if (err) throw err;
           let address = accounts[0];
             console.log("Magic address:" + address);
-            this.$store.state.loginCallbacks.forEach(callback=>callback(address));
+            this.$store.state.loginCallbacks.forEach(callback=>callback(address, fm));
         });
     },
     onMetaMask: function() {
@@ -81,7 +78,6 @@ export default {
 
 .login_input:focus {
   background-color: transparent;
-
   outline: none;
 }
 

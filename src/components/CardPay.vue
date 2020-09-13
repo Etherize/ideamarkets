@@ -1,24 +1,22 @@
 <template>
-  <b-container>
+  <div>
     <div  v-on:click='onBackBtn' class='back_btn'>
         <img src='@/assets/back-arrow.png' class='back_btn_img'/>
     </div>
     <b-container>
-      <b-row cols="2">
-          <b-col>
+        <b-row class="card-input">
             <CardDetails/>
-          </b-col>
-          <b-col>
+          </b-row>
+          <b-row class="card-input">
             <BillingAddress/>
-          </b-col>
-      </b-row>
+          </b-row>
     </b-container>
     <div class='forward_btn'>
       <button v-on:click='onContinueBtn' type='submit'>
         Continue
       </button>
     </div>
-  </b-container>
+  </div>
 </template>
 
 <script>
@@ -34,6 +32,15 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+
+.card-input-top {
+  border-top-right-radius: 5;
+  border-top-left-radius: 5;
+}
+
+.card-input {
+  max-width: 300px;
+}
 
 </style>

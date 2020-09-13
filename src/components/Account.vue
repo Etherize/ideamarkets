@@ -1,14 +1,14 @@
 <template>
-  <b-container style="display:flex; margin-left: 80px;">
+  <b-container v-if="this.address" style="display:flex; margin-left: 80px;">
     <b-row cols="3">
       <b-col>
-        <p style="color: white">Eth: 1.1</p>
+        <p style="color: white"> ETH: {{eth}}</p>
       </b-col>
       <b-col>
-        <p style="color: white">DAI: 25</p>
+        <p style="color: white">DAI: {{dai}}</p>
       </b-col>
       <b-col>
-        <button class="connect_button" v-b-modal.modal-account-logout> 0x38e...A83C</button>
+        <button class="connect_button" v-b-modal.modal-account-logout> {{address}}</button>
 <!-- logout modal -->
         <b-modal
           id="modal-account-logout"
@@ -28,7 +28,7 @@
             </b-row>
             <b-row cols="1">
               <b-col>
-                <img src='@/assets/logo.png' style="width: 30px"/>0x6cEF...67E1
+                <img src='@/assets/logo.png' style="width: 30px"/> {{address}}
               </b-col>
             </b-row>
             <b-row cols="2" style="text-align: center">
@@ -55,8 +55,36 @@
 //fm.user.logout();
 // from https://repl.it/@fortmatic/demo-kitchen-sink#handlers.js
 
+
 export default {
-  name: 'Account'
+  name: 'Account',
+  data: function () {
+    return {
+      address: "0x",
+      eth: "0.0",
+      dai: "0.0"
+    }
+  },
+  methods: {
+    listenForLogin:function(){
+      this.$store.commit('SET_LOGIN_CALLBACK', this.loggedIn)
+    },
+  loggedIn(address, fm){
+    console.log("logged in with address", address);
+    this.address= address;
+    // Get user balance (includes ERC20 tokens as well)
+     let balances = fm.user.getBalances();
+     console.log(balances);
+     let ethBalance = balances.ethBalancefind((e) => {
+           return e.crypto_currency == 'ETH';
+       });
+     console.log("Eth Balance:" + ethBalance)
+     this.eth = balances.ethBalance;
+    }
+  },
+  mounted:function(){
+    this.listenForLogin();
+  }
 }
 </script>
 

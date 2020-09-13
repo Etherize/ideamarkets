@@ -10,19 +10,19 @@
         <b-row cols="2">
       <b-col style="color:white; margin-left: 16px;"> <h6 class="font-weight-bold">$COINDESK.COM</h6> </b-col>
     </b-row>
-      <b-row style="margin-top: 10px;" cols="4" class="row-text">
+      <b-row style="margin-top: 10px;" class="row-text">
         <b-col> Minimum Sold</b-col>
         <b-col class="text-left"> 23.1</b-col>
       </b-row>
-      <b-row cols="4" class="row-text">
+      <b-row  class="row-text">
         <b-col>Price Impact</b-col>
         <b-col style="color: #F08080" class="text-left">3.2%</b-col>
       </b-row>
-      <b-row cols="4" class="row-text">
+      <b-row class="row-text">
         <b-col>Provider Fee</b-col>
         <b-col class="text-left">1%</b-col>
       </b-row>
-      <b-row cols="4" class="row-text">
+      <b-row  class="row-text">
         <b-col>Gas Fee</b-col>
         <b-col class="text-left">Free</b-col>
       </b-row>
