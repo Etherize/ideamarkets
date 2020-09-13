@@ -1,7 +1,5 @@
 <template>
-  <b-container style="display: flex;
-justify-content: flex-start;
-margin-left: 30px; margin-top: 50px;">
+  <b-container class="status_bar">
     <b-row cols="3" >
       <b-col><button  :class="{focus_button: this.$store.state.loginStep === 0}" class="status_button" v-on:click='onStepOne'></button></b-col>
       <b-col><button  :class="{focus_button: this.$store.state.loginStep === 1}" class="status_button" v-on:click='onStepTwo'></button></b-col>
@@ -53,6 +51,14 @@ export default {
 </script>
 
 <style scoped>
+
+.status_bar {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 30px;
+  margin-bottom: 20px;
+  }
+
 .status_button {
     min-width: 102px;
     border: none;

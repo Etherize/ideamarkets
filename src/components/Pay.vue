@@ -1,25 +1,25 @@
 <template>
   <b-container>
+    <b-container>
         <div v-if="$store.state.paymentType === 0">
-   <b-row>
-    <button v-on:click='payCard' class='pay_option_btn'>
-      <img src='@/assets/logo.png' class='pay_option_btn_img'/>
-      <div class='pay_option_btn_txt'>Credit / Debit Card</div>
-    </button>
-  </b-row>
-  <b-row>
-    <button v-on:click='payApple' class='pay_option_btn'>
-      <img src='@/assets/logo.png' class='pay_option_btn_img'/>
-      <div class='pay_option_btn_txt'>Apple Pay</div>
-    </button>
-    </b-row>
-    <b-row>
-    <button :class="{focus_button: this.$store.state.paymentType == 1}" v-on:click='payEth' class='pay_option_btn'>
-      <img src='@/assets/logo.png' class='pay_option_btn_img'/>
-      <div class='pay_option_btn_txt'>Ethereum</div>
-    </button>
-    </b-row>
-
+           <b-row>
+            <button v-on:click='payCard' class='option_btn'>
+              <img src='@/assets/credit.png' class='option_btn_img'/>
+              <div class='option_btn_txt'>Credit / Debit Card</div>
+            </button>
+          </b-row>
+          <b-row>
+          <button :class="{focus_button: this.$store.state.paymentType == 1}" v-on:click='payEth' class='option_btn'>
+            <img src='@/assets/ethereum.png' class='option_btn_img'/>
+            <div class='option_btn_txt'>Ethereum</div>
+          </button>
+          </b-row>
+          <b-row>
+            <button v-on:click='payApple' class='option_btn'>
+              <img src='@/assets/apple.png' class='option_btn_img'/>
+              <div class='option_btn_txt'>Apple Pay</div>
+            </button>
+          </b-row>
   </div>
 
     <div v-if="$store.state.paymentType === 1">
@@ -29,7 +29,7 @@
        <EthPay/>
     </div>
 
-
+    </b-container>
   </b-container>
 </template>
 
@@ -61,21 +61,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.pay_option_btn {
-  width: 350px;
-  height: 54px;
-  border-radius: 15px;
-  background-color: white;
-  border: 0;
-  margin: 10px;
-  display: flex;
-  align-items: center;
-  float: left;
-}
 
-.pay_option_btn_img {
-  width: 30px;
-  height: 30px;
-  margin: 5px;
-}
+
 </style>

@@ -2,7 +2,7 @@
   <div>
     <div class='back_btn'>
       <button v-on:click='onBackBtn' type='submit'>
-        <img src='@/assets/logo.png' class='back_btn_img'/>
+        <img src='@/assets/back-arrow.png' class='back_btn_img'/>
       </button>
     </div>
     <p>Send ETH to this address</p>
@@ -27,11 +27,5 @@ export default {
 </script>
 
 <style scoped>
-.back_btn {
-  text-align: left;
-}
 
-.back_btn_img {
-  width: 50px;
-}
 </style>

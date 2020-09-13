@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <div class='back_btn'>
-      <button v-on:click='onBackBtn' type='submit'>
-        <img src='@/assets/logo.png' class='back_btn_img'/>
-      </button>
+  <b-container>
+    <div  v-on:click='onBackBtn' class='back_btn'>
+        <img src='@/assets/back-arrow.png' class='back_btn_img'/>
     </div>
     <b-container>
       <b-row cols="2">
@@ -15,12 +13,12 @@
           </b-col>
       </b-row>
     </b-container>
-    <div class='back_btn'>
+    <div class='forward_btn'>
       <button v-on:click='onContinueBtn' type='submit'>
         Continue
       </button>
     </div>
-  </div>
+  </b-container>
 </template>
 
 <script>
@@ -37,11 +35,5 @@ export default {
 </script>
 
 <style scoped>
-.back_btn {
-  text-align: left;
-}
 
-.back_btn_img {
-  width: 50px;
-}
 </style>

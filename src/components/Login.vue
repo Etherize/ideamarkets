@@ -1,31 +1,26 @@
 <template>
-  <div class='login_main_area'>
-    <div class='login_input_area'>
-        <input v-model='emailValue' type='email' class='login_input' placeholder="email">
-        <button v-on:click='onSubmitMagic' type='submit' class='login_input_submit'>
-          <img src='@/assets/logo.png' class='login_input_btn_img'/>
-        </button>
-    </div>
-    <div class='login_options_area'>
-        <button v-on:click='hidePanel = !hidePanel' class='login_option_toggle'>
-          See more web3 login options
-        </button>
-        <div class='login_options_btn_area' :class="{hideme: hidePanel}">
-          <button v-on:click='onSubmitMW' class='login_option_btn'>
-            <img src='@/assets/logo.png' class='login_option_btn_img'/>
-            <div class='login_option_btn_txt'>Mobile Wallet</div>
-          </button>
-          <button v-on:click='onSubmitMT' class='login_option_btn'>
-            <img src='@/assets/logo.png' class='login_option_btn_img'/>
-            <div class='login_option_btn_txt'>Metamask</div>
-          </button>
-          <button v-on:click='onSubmitCW' class='login_option_btn'>
-            <img src='@/assets/logo.png' class='login_option_btn_img'/>
-            <div class='login_option_btn_txt'>Coinbase Wallet</div>
-          </button>
-        </div>
-    </div>
-  </div>
+  <b-container>
+    <b-container>
+    <b-row>
+     <button v-on:click='onMagic("email")' class='option_btn'>
+       <img src='@/assets/email.png' class='option_btn_img'/>
+       <div class='option_btn_txt'>Email Address</div>
+     </button>
+   </b-row>
+   <b-row>
+     <button v-on:click='onMagic("phone")' class='option_btn'>
+       <img src='@/assets/phone.png' class='option_btn_img'/>
+       <div class='option_btn_txt'>Phone Number</div>
+     </button>
+     </b-row>
+     <b-row>
+     <button v-on:click='onMetaMask' class='option_btn'>
+       <img src='@/assets/metamask.png' class='option_btn_img'/>
+       <div class='option_btn_txt'>MetaMask</div>
+     </button>
+     </b-row>
+   </b-container>
+ </b-container>
 </template>
 
 <script>
@@ -44,33 +39,21 @@ export default {
     }
   },
   methods: {
-    //TODO: Convert this into an async method https://medium.com/swlh/how-to-use-async-and-await-with-vue-js-apps-33132aa0838b
-    //
-    async onSubmitMagic() {
-        const fm = new Fortmatic('pk_test_FDABC9E0FE176C29');
-        const ok = await fm.configure("email");
-        console.log(ok);
-        console.log(fm.getProvider());
-        const web3 = new Web3(fm.getProvider());
-        web3.eth.getAccounts((err, accounts) => {
-            if (err) throw err;
-            let address = accounts[0];
-            console.log(address);
+
+    async onMagic(loginMethod) {
+    const fm = new Fortmatic('pk_test_FDABC9E0FE176C29');
+      fm.configure({ primaryLoginOption: loginMethod })
+      const web3 = new Web3(fm.getProvider());
+      web3.eth.getAccounts((err, accounts) => {
+      if (err) throw err;
+          let address = accounts[0];
+            console.log("Magic address:" + address);
             this.$store.state.loginCallbacks.forEach(callback=>callback(address));
         });
     },
-
-    onSubmitMW: function() {
-      alert("Mobile Wallet Coming Soon");
-    },
-
-    onSubmitMT: function() {
+    onMetaMask: function() {
       alert("MetaMask Login Coming Soon");
     },
-
-    onSubmitCW: function() {
-      alert("Coinbase Wallet Coming Soon");
-    }
   }
 }
 </script>
@@ -102,7 +85,6 @@ export default {
   outline: none;
 }
 
-
 .login_input::placeholder {
   color: white;
 }
@@ -114,55 +96,7 @@ export default {
   float: right;
 }
 
-.login_input_btn_img {
-  width: 100%;
-}
 
-.login_options_area {
-  text-align: left;
-  margin-top: 50px;
-}
-
-.login_option_toggle {
-  color: white;
-  font-size: 24px;
-  border: 0;
-  border-bottom: 1px solid white;
-  background: transparent;
-  margin-bottom: 20px;
-}
-
-.login_option_toggle:focus {
-  outline: none;
-}
-
-.login_option_btn {
-  width: 126px;
-  height: 54px;
-  border-radius: 15px;
-  background-color: white;
-  border: 0;
-  margin: 10px;
-
-  display: flex;
-  align-items: center;
-  float: left;
-}
-
-.login_option_btn:focus {
-  outline: 0;
-}
-
-.login_option_btn_img {
-  width: 30px;
-  height: 30px;
-  margin: 5px;
-}
-
-.login_option_btn_txt {
-  float: right;
-  text-align: left;
-}
 
 .hideme {
   display: none;
