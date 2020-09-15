@@ -8,7 +8,7 @@
         <p style="color: white">DAI: {{dai}}</p>
       </b-col>
       <b-col>
-        <button class="connect_button" v-b-modal.modal-account-logout> {{address}}</button>
+        <button class="connect_button" v-b-modal.modal-account-logout> {{abvAddress}}</button>
 <!-- logout modal -->
         <b-modal
           id="modal-account-logout"
@@ -17,7 +17,8 @@
           <b-container>
             <b-row cols="3">
               <b-col>
-                <p>Connected with WalletConnect</p>
+                <!-- Todo: set providerName to MetaMask if MetaMask is used -->
+                <p>Connected with {{providerName}}</p>
               </b-col>
               <b-col>
                 <button> Disconnect </button>
@@ -28,7 +29,7 @@
             </b-row>
             <b-row cols="1">
               <b-col>
-                <img src='@/assets/logo.png' style="width: 30px"/> {{address}}
+                <img src='@/assets/logo.png' style="width: 30px"/> {{abvAddress}}
               </b-col>
             </b-row>
             <b-row cols="2" style="text-align: center">
@@ -60,7 +61,9 @@ export default {
   name: 'Account',
   data: function () {
     return {
+      providerName: "FortMatic",
       address: "0x",
+      abvAddress: "0x",
       eth: "0.0",
       dai: "0.0"
     }
@@ -71,15 +74,20 @@ export default {
     },
   loggedIn(address, fm){
     console.log("logged in with address", address);
-    this.address= address;
+    this.address = address;
+    var addressStart = address.substr(0, 4);
+    var addressEnd = address.substr(38, 43);
+    this.abvAddress= addressStart + "..." + addressEnd;
     // Get user balance (includes ERC20 tokens as well)
-     let balances = fm.user.getBalances();
-     console.log(balances);
-     let ethBalance = balances.ethBalancefind((e) => {
-           return e.crypto_currency == 'ETH';
-       });
-     console.log("Eth Balance:" + ethBalance)
-     this.eth = balances.ethBalance;
+        fm.eth.getCoinbase((error, coinbase) => {
+        if (error) throw error;
+        console.log("ETH Coinbase:" + coinbase);
+      });
+  //   let balances = fm.user.getBalances();
+  //   console.log(balances);
+  //    let ethBalance =  fm.balances.ethBalance;
+    // console.log("Eth Balance:" + ethBalance)
+  //   this.eth = ethBalance;
     }
   },
   mounted:function(){

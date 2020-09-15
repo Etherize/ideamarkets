@@ -38,14 +38,14 @@ export default {
   },
   methods: {
     async onMagic(loginMethod) {
-    const fm = new Fortmatic('pk_test_FDABC9E0FE176C29');
+      const fm = new Fortmatic('pk_test_FDABC9E0FE176C29');
       fm.configure({ primaryLoginOption: loginMethod })
       const web3 = new Web3(fm.getProvider());
       web3.eth.getAccounts((err, accounts) => {
       if (err) throw err;
           let address = accounts[0];
             console.log("Magic address:" + address);
-            this.$store.state.loginCallbacks.forEach(callback=>callback(address, fm));
+            this.$store.state.loginCallbacks.forEach(callback=>callback(address, web3));
         });
     },
     onMetaMask: function() {
