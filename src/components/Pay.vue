@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container  class="mainContainer">
     <b-container>
         <div v-if="$store.state.paymentType === 0">
            <b-row>

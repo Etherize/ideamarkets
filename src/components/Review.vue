@@ -1,5 +1,5 @@
 <template>
-  <b-container style="margin-top: 50px;">
+  <b-container class="mainContainer">
     <b-row>
       <button class="price_button">23.45 USD</button>
     </b-row>

@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container  class="mainContainer">
     <b-container>
     <b-row>
      <button v-on:click='onMagic("email")' class='option_btn'>
@@ -46,6 +46,7 @@ export default {
           let address = accounts[0];
             console.log("Magic address:" + address);
             this.$store.state.loginCallbacks.forEach(callback=>callback(address, web3));
+            this.$store.commit('SET_LOGIN_STEP', 1)
         });
     },
     onMetaMask: function() {

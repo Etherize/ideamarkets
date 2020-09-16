@@ -1,5 +1,5 @@
 <template>
-  <b-container v-if="this.address" style="display:flex; margin-left: 80px;">
+  <b-container :style="{visibility: $store.state.loginStep > 0 ? 'visible' : 'hidden'}" class="account_panel">
     <b-row cols="3">
       <b-col>
         <p style="color: white"> ETH: {{eth}}</p>
@@ -56,6 +56,17 @@
 //fm.user.logout();
 // from https://repl.it/@fortmatic/demo-kitchen-sink#handlers.js
 
+const promisify = (inner) =>
+    new Promise((resolve, reject) =>
+        inner((err, res) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(res);
+            }
+        })
+    );
+
 
 export default {
   name: 'Account',
@@ -72,32 +83,41 @@ export default {
     listenForLogin:function(){
       this.$store.commit('SET_LOGIN_CALLBACK', this.loggedIn)
     },
-  loggedIn(address, fm){
+  async loggedIn(address, web3){
     console.log("logged in with address", address);
     this.address = address;
     var addressStart = address.substr(0, 4);
     var addressEnd = address.substr(38, 43);
-    this.abvAddress= addressStart + "..." + addressEnd;
-    // Get user balance (includes ERC20 tokens as well)
-        fm.eth.getCoinbase((error, coinbase) => {
-        if (error) throw error;
-        console.log("ETH Coinbase:" + coinbase);
-      });
-  //   let balances = fm.user.getBalances();
-  //   console.log(balances);
-  //    let ethBalance =  fm.balances.ethBalance;
-    // console.log("Eth Balance:" + ethBalance)
-  //   this.eth = ethBalance;
+    this.abvAddress = addressStart + "..." + addressEnd;
+    var wei, balance
+    wei = promisify(cb => web3.eth.getBalance(address, cb))
+    try {
+        balance = web3.fromWei(await wei, 'ether')
+        console.log(balance  + "ETH");
+    } catch (error) {
+        console.log("balance error");
     }
   },
   mounted:function(){
     this.listenForLogin();
   }
 }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
+<!-- TODO: Make a mobile version of accoutn_panel that isn't fixed -->
 <style scoped>
+
+.account_panel{
+  display:flex;
+  padding-bottom: 1rem;
+  top: 30px;
+  left: 75%;
+  position: fixed;
+  width: 100%;
+}
+
 .connect_button {
     min-width: 102px;
     border: none;
