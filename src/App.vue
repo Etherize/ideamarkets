@@ -4,9 +4,8 @@
       <b-row class="mx-auto">
           <b-col class="align-self-center borderRight">
             <ChartContainer/>
-
           </b-col>
-          <b-col class="align-self-center">
+          <b-col style="padding-top: 100px;" class="align-self-center">
               <Account/>
               <LoginProgress/>
               <Footer/>
