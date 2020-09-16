@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <b-container fluid class="d-flex h-75 my-auto mx-auto">
-      <b-row cols="2" class="mx-auto">
+      <b-row class="mx-auto">
           <b-col class="align-self-center borderRight">
             <ChartContainer/>
 
@@ -9,23 +9,11 @@
           <b-col class="align-self-center">
               <Account/>
               <LoginProgress/>
+              <Footer/>
           </b-col>
       </b-row>
     </b-container>
-    <b-container class="footer">
-                <b-row cols="3">
-                  <b-col cols="8" md="6">
-                  </b-col>
-                  <b-col cols="3" md="2" class="lock">
-                    <img width="75px" height="75px" src='@/assets/lock.png'>
-                  </b-col>
 
-                  <b-col cols="4" md="4" class="footer_text">
-                    <h3>Non-custodial & Secure</h3>
-                    <p>We do not own your private keys and cannot access your funds without your permission</p>
-                  </b-col>
-                </b-row>
-    </b-container>
   </div>
 </template>
 
@@ -34,6 +22,7 @@
 import Account from './components/Account.vue'
 import ChartContainer from './components/ChartContainer.vue'
 import LoginProgress from './components/LoginProgress.vue'
+import Footer from './components/Footer.vue'
 
 
 export default {
@@ -41,7 +30,8 @@ export default {
   components: {
     Account,
     ChartContainer,
-    LoginProgress
+    LoginProgress,
+    Footer
   }
 }
 </script>
