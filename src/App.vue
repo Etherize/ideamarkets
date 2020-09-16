@@ -19,6 +19,7 @@
                   <b-col cols="3" md="2" class="lock">
                     <img width="75px" height="75px" src='@/assets/lock.png'>
                   </b-col>
+
                   <b-col cols="4" md="4" class="footer_text">
                     <h3>Non-custodial & Secure</h3>
                     <p>We do not own your private keys and cannot access your funds without your permission</p>
@@ -62,6 +63,7 @@ export default {
   position: absolute;
   content: '';
   border-right: 8px solid white;
+  border-radius: 8px;
   height: 75%;
   right: 0;
   top: 10%;
