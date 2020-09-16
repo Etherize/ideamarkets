@@ -3,6 +3,8 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+
+
 const store = new Vuex.Store({
   state: {
     loginStep: 0,
@@ -12,7 +14,6 @@ const store = new Vuex.Store({
   mutations: {
     SET_LOGIN_CALLBACK:(state,callback)=>{
       console.log("callback set!");
-      console.log(state);
       state.loginCallbacks.unshift(callback);
     },
     SET_LOGIN_STEP: (state, step) => {

@@ -1,5 +1,5 @@
 <template>
-  <b-container v-if="this.address" style="display:flex; margin-left: 80px;">
+  <b-container :style="{visibility: $store.state.loginStep>0 ? 'visible' : 'hidden'}" style="display:flex; margin-left: 80px;">
     <b-row cols="3">
       <b-col>
         <p style="color: white"> ETH: {{eth}}</p>
@@ -61,6 +61,7 @@ export default {
   name: 'Account',
   data: function () {
     return {
+      visible: true,
       providerName: "FortMatic",
       address: "0x",
       abvAddress: "0x",
