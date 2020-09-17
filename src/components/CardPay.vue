@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div  v-on:click='onBackBtn' class='back_btn'>
+    <div  v-on:click='onBack' class='back_btn'>
         <img src='@/assets/back-arrow.png' class='back_btn_img'/>
     </div>
     <b-container>
@@ -12,7 +12,7 @@
           </b-row>
     </b-container>
     <div class='forward_btn'>
-      <button v-on:click='onContinueBtn' type='submit'>
+      <button v-on:click='onPay' type='submit'>
         Continue
       </button>
     </div>
@@ -28,6 +28,16 @@ export default {
   components: {
     CardDetails,
     BillingAddress,
+  },
+methods: {
+  onBack: function() {
+    this.$store.commit('SET_PAYMENT_TYPE', 0)
+  },
+   onPay: function() {
+     console.log("Payment initiated");
+     this.$store.state.paymentCallbacks.forEach(callback=>callback('faketransaction', 'fakeamount '));
+     this.$store.commit('SET_LOGIN_STEP', 2)
+    }
   }
 }
 </script>
@@ -35,8 +45,8 @@ export default {
 <style>
 
 .card-input-top {
-  border-top-right-radius: 5;
-  border-top-left-radius: 5;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
 }
 
 .card-input {

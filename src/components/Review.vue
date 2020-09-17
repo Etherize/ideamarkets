@@ -28,7 +28,7 @@
       </b-row>
       </div>
       <b-row>
-        <button class="confirm_button">Continue</button>
+        <button v-on:click='buyToken' class="confirm_button">Continue</button>
       </b-row>
   </b-container>
 </template>
@@ -36,6 +36,20 @@
 <script>
 export default {
   name: 'Review',
+  methods: {
+  listenForPayment:function(){
+    this.$store.commit('SET_PAYMENT_CALLBACK', this.getPaid)
+  },
+   getPaid:function(address, web3){
+    console.log("get paid with" + address + " and " + web3);
+  },
+  buyToken:function(){
+    alert("BUY BUY BUY");
+  },
+  mounted:function(){
+    this.listenForPayment();
+    }
+  }
 }
 </script>
 
