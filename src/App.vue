@@ -107,9 +107,14 @@ export default {
   float: left;
 }
 
+.option_btn:hover {
+  opacity: .8;
+}
+
 .option_btn_txt {
   float: right;
   text-align: left;
+  margin-left: 10px;
 }
 
 .back_btn {
@@ -123,5 +128,24 @@ export default {
 .mainContainer{
   min-height: 300px;
 }
+
+.continue_button {
+    margin-top: 20px;
+    color: #2c5ade;
+    font-weight: bold;
+    min-width: 250px;
+    min-height: 45px;
+    margin-left: 47px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    background-color: #f2f2f2;
+    margin-left: 40px;
+}
+
+.continue_button:hover{
+   opacity: .8;
+}
+
 
 </style>

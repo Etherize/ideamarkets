@@ -48,6 +48,10 @@ export default {
     background-color:	#508cfe;
   }
 
+  .status_button:hover{
+    opacity: .8;
+  }
+
 .focus_button {
   background-color:	#a7c6ff;
   border: none;

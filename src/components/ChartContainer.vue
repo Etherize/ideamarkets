@@ -136,7 +136,7 @@ export default {
 
   apollo: {
       //this query will update the `viewer` data property
-    viewer: {
+    votes: {
       query: gql`query
        {
           votes(first:20, where: { orgAddress: "0xC27ADc37D1bf50e85A066De09092B01C21f7Dd7E"}){

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <b-container class="login_main_area">
     <div  v-on:click='onBack' class='back_btn'>
         <img src='@/assets/back-arrow.png' class='back_btn_img'/>
     </div>
@@ -10,14 +10,14 @@
           <b-row class="card-input">
             <BillingAddress/>
           </b-row>
+
     </b-container>
-    <div class='forward_btn'>
-      <button v-on:click='onPay' type='submit'>
-        Continue
-      </button>
-    </div>
-  </div>
+      <b-row>
+        <button v-on:click='buyToken' class="continue_button">Continue</button>
+      </b-row>
+  </b-container>
 </template>
+
 
 <script>
 import CardDetails from './CardDetails.vue'
@@ -44,13 +44,36 @@ methods: {
 
 <style>
 
-.card-input-top {
-  border-top-right-radius: 15px;
-  border-top-left-radius: 15px;
+.back_btn:hover{
+ opacity: .8;
+}
+
+.card_subtitle {
+  color: white;
+}
+
+
+.card_input_top {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  margin-bottom: 2px;
 }
 
 .card-input {
+  padding-left: 10px;
   max-width: 300px;
 }
+
+.card_input_bottom_left {
+  width: 145%;
+  border-right: 2px solid #085bff;
+  border-bottom-left-radius: 10px;
+}
+
+.card_input_bottom_right {
+  width: 100%;
+  border-bottom-right-radius: 10px;
+}
+
 
 </style>

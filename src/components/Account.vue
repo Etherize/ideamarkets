@@ -29,15 +29,15 @@
             </b-row>
             <b-row cols="1">
               <b-col>
-                <img src='@/assets/logo.png' style="width: 30px"/> {{abvAddress}}
+                 {{address}}
               </b-col>
             </b-row>
             <b-row cols="2" style="text-align: center">
               <b-col>
-                <img src='@/assets/logo.png' style="width: 20px"/>Copy Address
+                  <button> Copy Address </button>
               </b-col>
               <b-col>
-                <img src='@/assets/logo.png' style="width: 20px"/>View on Etherscan
+                  <button> View on Etherscan </button>
               </b-col>
             </b-row>
           </b-container>
@@ -126,4 +126,9 @@ export default {
     border-radius: 9px;
     background-color: white;
   }
+
+.connect_button:hover{
+  opacity: .8;
+}
+
 </style>

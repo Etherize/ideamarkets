@@ -3,7 +3,7 @@
     <b-row>
       <button class="price_button">23.45 USD</button>
     </b-row>
-    <div class="custom">
+    <div class="confirm_panel">
     <b-row cols="2" style="margin-top: 20px;">
       <b-col style="color:white;"> <h6 class="font-weight-bold"> = $23.45</h6> </b-col>
     </b-row>
@@ -28,7 +28,7 @@
       </b-row>
       </div>
       <b-row>
-        <button v-on:click='buyToken' class="confirm_button">Continue</button>
+        <button v-on:click='buyToken' class="continue_button">Continue</button>
       </b-row>
   </b-container>
 </template>
@@ -64,22 +64,11 @@ export default {
     border-radius: 12px;
     background-color: #f2f2f2;
 }
-.custom {
+.confirm_panel {
   text-align: left;
   margin-left: 40px;
 }
-.confirm_button {
-    margin-top: 20px;
-    color: #2c5ade;
-    font-weight: bold;
-    min-width: 250px;
-    min-height: 45px;
-    margin-left: 47px;
-    border: none;
-    outline: none;
-    border-radius: 12px;
-    background-color: #f2f2f2;
-}
+
 .row-text {
   color: white;
   text-align: align-left;

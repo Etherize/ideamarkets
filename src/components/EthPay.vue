@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <div class='back_btn'>
-      <button v-on:click='onBack' type='submit'>
+  <div class="login_main_area">
+    <div  v-on:click='onBack' class='back_btn'>
         <img src='@/assets/back-arrow.png' class='back_btn_img'/>
-      </button>
     </div>
     <p>Send ETH to this address</p>
     <b-container>
