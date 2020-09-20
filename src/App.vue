@@ -51,6 +51,8 @@ export default {
   position: absolute;
   content: '';
   border-right: 8px solid white;
+  border-radius: 8px;
+  border-right: 8px solid white;
   height: 75%;
   right: 0;
   top: 10%;
