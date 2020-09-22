@@ -8,7 +8,7 @@
                 </b-col>
                 <b-col cols="4" md="4" class="footer_text">
                   <h3>Non-Custodial & Secure</h3>
-                  <p>We cannot access your private keys nor funds without your permission.</p>
+                  <p>We cannot access your private keys or funds without your permission.</p>
                 </b-col>
               </b-row>
   </b-container>
@@ -34,7 +34,7 @@ export default {
 }
 
 .footer_text{
-  text-align: left;
+  text-align: center;
   color: white;
 }
 

@@ -50,7 +50,7 @@ export default {
     },
     payApple: function() {
       this.$store.commit('SET_PAYMENT_TYPE', 0);
-      alert("Apple Pay Coming Soon");
+      alert("ApplePay Coming Soon");
     },
     payEth: function() {
       this.$store.commit('SET_PAYMENT_TYPE', 2);

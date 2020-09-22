@@ -149,5 +149,13 @@ export default {
    opacity: .8;
 }
 
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+input {
+  border-style: hidden;
+}
+
 
 </style>

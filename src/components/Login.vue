@@ -50,7 +50,7 @@ export default {
         });
     },
     onMetaMask: function() {
-      alert("MetaMask Login Coming Soon");
+      alert("MetaMask Coming Soon");
     },
   }
 }

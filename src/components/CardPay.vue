@@ -53,6 +53,8 @@ methods: {
 }
 
 
+
+
 .card_input_top {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
@@ -66,7 +68,6 @@ methods: {
 
 .card_input_bottom_left {
   width: 145%;
-  border-right: 2px solid #085bff;
   border-bottom-left-radius: 10px;
 }
 
