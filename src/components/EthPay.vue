@@ -125,4 +125,5 @@ export default {
   word-wrap: break-word;
   text-align:left;
 }
+
 </style>
