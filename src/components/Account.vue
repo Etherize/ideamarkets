@@ -28,18 +28,18 @@
               </b-col>
             </b-row>
             <b-row cols="1">
-              <b-col>
-                 {{address}}
-              </b-col>
-            </b-row>
-            <b-row cols="2" style="text-align: center">
-              <b-col>
-                  <button> Copy Address </button>
-              </b-col>
-              <b-col>
-                  <button> View on Etherscan </button>
-              </b-col>
-            </b-row>
+            <b-col>
+              <img src='@/assets/logo.png' style="width: 30px"/> {{abvAddress}}
+            </b-col>
+          </b-row>
+          <b-row cols="2" style="text-align: center">
+            <b-col>
+              <img src='@/assets/logo.png' style="width: 20px"/>Copy Address
+            </b-col>
+            <b-col>
+              <img src='@/assets/logo.png' style="width: 20px"/>View on Etherscan
+            </b-col>
+          </b-row>
           </b-container>
         </b-modal>
 
@@ -49,25 +49,11 @@
 </template>
 
 <script>
-
 //TODO:  Make this component be hidden until there is login;
 //TODO: Add function to Disconnect button to log out of FortMagic
 //TODO: Also logout of MetaMask if applicable
 //fm.user.logout();
 // from https://repl.it/@fortmatic/demo-kitchen-sink#handlers.js
-
-const promisify = (inner) =>
-    new Promise((resolve, reject) =>
-        inner((err, res) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve(res);
-            }
-        })
-    );
-
-
 export default {
   name: 'Account',
   data: function () {
@@ -83,40 +69,46 @@ export default {
     listenForLogin:function(){
       this.$store.commit('SET_LOGIN_CALLBACK', this.loggedIn)
     },
-  async loggedIn(address, web3){
+  loggedIn(address, fm){
     console.log("logged in with address", address);
     this.address = address;
     var addressStart = address.substr(0, 4);
     var addressEnd = address.substr(38, 43);
-    this.abvAddress = addressStart + "..." + addressEnd;
-    var wei, balance
-    wei = promisify(cb => web3.eth.getBalance(address, cb))
-    try {
-        balance = web3.fromWei(await wei, 'ether')
-        console.log(balance  + "ETH");
-    } catch (error) {
-        console.log("balance error");
+    this.abvAddress= addressStart + "..." + addressEnd;
+    // Get user balance (includes ERC20 tokens as well)
+        fm.eth.getCoinbase((error, coinbase) => {
+        if (error) throw error;
+        console.log("ETH Coinbase:" + coinbase);
+      });
+  //   let balances = fm.user.getBalances();
+  //   console.log(balances);
+  //    let ethBalance =  fm.balances.ethBalance;
+    // console.log("Eth Balance:" + ethBalance)
+  //   this.eth = ethBalance;
     }
   },
   mounted:function(){
     this.listenForLogin();
   }
 }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<!-- TODO: Make a mobile version of accoutn_panel that isn't fixed -->
 <style scoped>
 
 .account_panel{
-  display:flex;
-  padding-bottom: 1rem;
-  top: 30px;
-  left: 75%;
-  position: fixed;
-  width: 100%;
+display:flex;
+padding-bottom: 1rem;
+top: 30px;
+left: 75%;
+position: fixed;
+width: 100%;
 }
+
+.connect_button:hover{
+opacity: .8;
+}
+
 
 .connect_button {
     min-width: 102px;
@@ -126,9 +118,4 @@ export default {
     border-radius: 9px;
     background-color: white;
   }
-
-.connect_button:hover{
-  opacity: .8;
-}
-
 </style>
