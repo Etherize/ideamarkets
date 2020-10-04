@@ -96,14 +96,52 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+
+@media (min-width: 768px)  {
 .account_panel{
-display:flex;
-padding-bottom: 1rem;
-top: 30px;
-left: 75%;
-position: fixed;
-width: 100%;
+  display:flex;
+  padding-bottom: 1rem;
+  top: 30px;
+  left: 75%;
+  position: fixed;
+  width: 100%;
+  }
 }
+
+@media (min-width: 768px) and (max-width: 979px) {
+.account_panel{
+  display:flex;
+  padding-bottom: 1rem;
+  top: 30px;
+  left: 55%;
+  position: fixed;
+  width: 100%;
+  }
+}
+
+@media (min-width: 979px) and (max-width: 1200px) {
+.account_panel{
+  display:flex;
+  padding-bottom: 1rem;
+  top: 30px;
+    left: 60%;
+  position: fixed;
+  width: 100%;
+  }
+}
+
+@media (min-width: 1200px)  {
+.account_panel{
+  display:flex;
+  padding-bottom: 1rem;
+  top: 30px;
+    left: 65%;
+  position: fixed;
+  width: 100%;
+  }
+}
+
+
 
 .connect_button:hover{
 opacity: .8;

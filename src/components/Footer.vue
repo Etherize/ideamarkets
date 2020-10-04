@@ -25,13 +25,22 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+@media (min-width: 768px)  {
 .footer{
   padding-bottom: 1rem;
   bottom: 30px;
   right: 5%;
   position: fixed;
   width: 100%;
+  }
 }
+
+@media (max-width: 768px)  {
+.footer{
+  display: none;
+  }
+}
+
 
 .footer_text{
   text-align: center;

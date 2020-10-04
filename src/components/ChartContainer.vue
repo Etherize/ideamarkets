@@ -1,9 +1,9 @@
 <template>
-  <b-container>
+  <b-container >
     <b-row align-h="center" class="graphTitle">
       $COINDESK(+14%)
     </b-row>
-    <b-row class="p-5">
+    <b-row class="graphContainer">
     <line-chart
       :width="500"
       :height="300"
@@ -11,7 +11,7 @@
       :options="$options.options"
       :datasets="$options.datasets"
     ></line-chart>
-    <div v-if="$apollo.loading">Loading GraphQL..</div>
+    <!-- Here you can place a loading graphic .... <div v-if="$apollo.loading">Loading GraphQL..</div> -->
     </b-row>
     <b-row cols="4" class="graph-text">
       <b-col>
@@ -135,7 +135,8 @@ export default {
 
 
   apollo: {
-      //this query will update the `viewer` data property
+    //TODO When this is changed to Idea Markets subgraph ... be sure to change both instances of 'votes' to avoid an error being thrown
+    // both the object and the queried object type should be the same
     votes: {
       query: gql`query
        {
@@ -155,3 +156,12 @@ export default {
 };
 
 </script>
+
+<style scoped>
+.graphContainer {
+   position: relative;
+    height: 40vh;
+    width: 30vw;
+    max-width: 100%;
+}
+</style>

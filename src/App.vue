@@ -2,7 +2,7 @@
   <div id="app">
     <b-container fluid class="d-flex h-75 my-auto mx-auto">
       <b-row class="mx-auto">
-          <b-col class="align-self-center borderRight">
+          <b-col class="align-self-center thickBorder">
             <ChartContainer/>
           </b-col>
           <b-col style="padding-top: 100px;" class="align-self-center">
@@ -43,19 +43,26 @@ export default {
   text-align: center;
   color: #2c3e50;
   background-image: linear-gradient(#0044FF, #137AFF);
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   margin: 0;
 }
 
-.borderRight:after{
+
+@media (min-width: 735px)  {
+#app {
+  height: 100vh;
+}
+
+.thickBorder:after{
   position: absolute;
   content: '';
   border-right: 8px solid white;
   border-radius: 8px;
-  border-right: 8px solid white;
   height: 75%;
   right: 0;
   top: 10%;
+  }
 }
 
 .lock{
