@@ -11,7 +11,7 @@
       :options="$options.options"
       :datasets="$options.datasets"
     ></line-chart>
-    <!-- Here you can place a loading graphic .... <div v-if="$apollo.loading">Loading GraphQL..</div> -->
+    <!-- TODO Here you can place a loading graphic .... <div v-if="$apollo.loading">Loading GraphQL..</div> -->
     </b-row>
     <b-row cols="4" class="graph-text">
       <b-col>

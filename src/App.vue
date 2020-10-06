@@ -43,8 +43,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   background-image: linear-gradient(#0044FF, #137AFF);
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  max-width: 100vw;
   margin: 0;
 }
 
