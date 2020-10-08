@@ -1,15 +1,18 @@
 <template>
+
   <b-container class="mainContainer">
-    <b-row>
-      <button class="price_button">23.45 USD</button>
-    </b-row>
+
     <div class="confirm_panel">
-    <b-row cols="2" style="margin-top: 20px;">
-      <b-col style="color:white;"> <h6 class="font-weight-bold"> = $23.45</h6> </b-col>
-    </b-row>
-        <b-row cols="2">
-      <b-col style="color:white; margin-left: 16px;"> <h6 class="font-weight-bold">$COINDESK.COM</h6> </b-col>
-    </b-row>
+
+      <div  v-on:click='onBack' class='back_btn'>
+        <img src='@/assets/back-arrow.png' class='back_btn_img'/>
+      </div>
+
+      <b-row class="mt-4"  style="color:white;">
+        <b-col> Amount To Spend</b-col>
+        <input type="number" style="border-radius: 6px;" id="amountUSD" v-model="amountUSD"
+               placeholder="$0" class="card_input ml-5">
+      </b-row>
       <b-row style="margin-top: 10px;" class="row-text">
         <b-col> Minimum Sold</b-col>
         <b-col class="text-left"> 23.1</b-col>
@@ -28,27 +31,75 @@
       </b-row>
       </div>
       <b-row>
-        <button v-on:click='buyToken' class="continue_button">Continue</button>
+        <button v-on:click='buyToken' class="continue_button">Place Order</button>
       </b-row>
+    <div>
+      <b-modal id="modal-1" title="Order Status">
+        <div v-if="this.$store.state.loading">
+          <div class="text-center">
+            <b-spinner variant="primary" label="Text Centered"></b-spinner>
+          </div>
+        </div>
+        <div v-else>
+          <p class="my-4">{{this.$store.state.serverResponse}}</p>
+          <p class="my-4">{{this.$store.state.error}}</p>
+        </div>
+      </b-modal>
+    </div>
   </b-container>
+
+
 </template>
 
 <script>
+
+
 export default {
   name: 'Review',
+  data:function(){return {
+    amountUSD: '$0',
+  }
+  },
   methods: {
-  listenForPayment:function(){
-    this.$store.commit('SET_PAYMENT_CALLBACK', this.getPaid)
-  },
-   getPaid:function(address, web3){
-    console.log("get paid with" + address + " and " + web3);
-  },
+    onBack: function() {
+      this.$store.commit('SET_LOGIN_STEP', 1)
+    },
   buyToken:function(){
-    alert("BUY BUY BUY");
+    this.$bvModal.show("modal-1");
+    this.$store.commit('SET_WAITING_FOR_BACKEND', true);
+
+    // TODO: use this cc info in the following api call: https://docs.sendwyre.com/docs/white-label-card-processing-api
+    let postData = this.$store.state.paymentInfo;
+
+    // TODO: ADD any extra data here you want to include from user
+    postData["amountUSD"] = this.amountUSD;
+    postData = JSON.stringify(postData);
+
+    console.log("cc data posting to backend:",postData);
+    const BACKEND_URL="https://example.com";
+
+    fetch(BACKEND_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: postData,
+     })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+        this.$store.commit('SET_WAITING_FOR_BACKEND', false);
+        // TODO: parse your server response to make it friendly
+        this.$store.commit('SET_RESPONSE_FROM_BACKEND', data);
+
+      })
+      .catch((error) => {
+        this.$store.commit('SET_WAITING_FOR_BACKEND', false);
+        // TODO: parse your server error to make it friendly
+        this.$store.commit('SET_ERROR_FROM_BACKEND', error);
+      });
+
   },
-  mounted:function(){
-    this.listenForPayment();
-    }
   }
 }
 </script>
@@ -71,6 +122,6 @@ export default {
 
 .row-text {
   color: white;
-  text-align: align-left;
+  text-align: left;
 }
 </style>

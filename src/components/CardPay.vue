@@ -5,39 +5,79 @@
     </div>
     <b-container>
         <b-row class="card-input">
-            <CardDetails/>
-          </b-row>
+            <div>
+                <p class="card_subtitle">Debit Card</p>
+                <b-container>
+                    <b-row cols="1">
+                        <input v-model='cardNumValue' class='card_input card_input_top' placeholder="4243 2342 2413 4324">
+                    </b-row>
+                    <b-row cols="2">
+                        <input v-model='cardDateValue' style='  border-right: 2px solid #085bff;' class='card_input card_input_bottom_left card_input_date' placeholder="12/2000">
+                        <input v-model='cardCvvValue' class='card_input card_input_bottom_right' placeholder="CVV">
+                    </b-row>
+                </b-container>
+            </div>
+      </b-row>
           <b-row class="card-input">
-            <BillingAddress/>
+              <div class='billing_address'>
+                  <p class="card_subtitle">Billing Address</p>
+                  <b-container>
+                      <b-row cols="1">
+                          <input v-model='billingAdr' class='card_input card_input_top' placeholder="Address">
+                      </b-row>
+                      <b-row cols="3">
+                          <input v-model='billingAdrCity' class='card_input card_input_bottom_left' placeholder="City">
+                          <input v-model='billingAdrState' class='card_input card_input_bottom_center' placeholder="State">
+                          <input v-model='billingAdrPostal' class='card_input card_input_bottom_right' placeholder="Postal">
+                      </b-row>
+                  </b-container>
+              </div>
           </b-row>
-
     </b-container>
       <b-row>
-        <button v-on:click='buyToken' class="continue_button">Continue</button>
+        <button v-on:click='sendBackendPaymentInfoAndWaitForConfirmation' class="continue_button">Continue</button>
       </b-row>
   </b-container>
 </template>
 
 
 <script>
-import CardDetails from './CardDetails.vue'
-import BillingAddress from './BillingAddress.vue'
 
 export default {
   name: 'CardPay',
+    data: function(){
+      return{
+          cardNumValue: '',
+          cardDateValue: '',
+          cardCvvValue: '',
+          billingAdr: '',
+          billingAdrCity: '',
+          billingAdrState: '',
+          billingAdrPostal: '',
+      }
+    },
   components: {
-    CardDetails,
-    BillingAddress,
   },
 methods: {
   onBack: function() {
     this.$store.commit('SET_PAYMENT_TYPE', 0)
   },
-   onPay: function() {
-     console.log("Payment initiated");
-     this.$store.state.paymentCallbacks.forEach(callback=>callback('faketransaction', 'fakeamount '));
-     this.$store.commit('SET_LOGIN_STEP', 2)
-    }
+   sendBackendPaymentInfoAndWaitForConfirmation: function() {
+        console.log("Payment saved");
+
+       const postData = { cardNumValue: this.cardNumValue,
+           cardDateValue: this.cardDateValue,
+           cardCvvValue: this.cardCvvValue,
+           billingAdr: this.billingAdr,
+           billingAdrCity: this.billingAdrCity,
+           billingAdrState: this.billingAdrState,
+           billingAdrPostal: this.billingAdrPostal
+       };
+       this.$store.commit('SET_PAYMENT_INFO', postData);
+       this.$store.commit('SET_LOGIN_STEP', 2)
+
+   }
+
   }
 }
 </script>
