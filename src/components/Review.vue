@@ -34,7 +34,7 @@
         <button v-on:click='buyToken' class="continue_button">Place Order</button>
       </b-row>
     <div>
-      <b-modal id="modal-1" title="Order Status">
+      <b-modal id="modal-1" title="Order Status" ok-only >
         <div v-if="this.$store.state.loading">
           <div class="text-center">
             <b-spinner variant="primary" label="Text Centered"></b-spinner>
@@ -76,7 +76,9 @@ export default {
     postData = JSON.stringify(postData);
 
     console.log("cc data posting to backend:",postData);
-    const BACKEND_URL="https://example.com";
+
+    // TODO: add in server url here
+    const BACKEND_URL="https://www.google.com";
 
     fetch(BACKEND_URL, {
       method: 'POST',
@@ -88,12 +90,14 @@ export default {
       .then(response => response.json())
       .then(data => {
         console.log('Success:', data);
+        this.$bvModal.show("modal-1");
         this.$store.commit('SET_WAITING_FOR_BACKEND', false);
         // TODO: parse your server response to make it friendly
         this.$store.commit('SET_RESPONSE_FROM_BACKEND', data);
 
       })
       .catch((error) => {
+        this.$bvModal.show("modal-1");
         this.$store.commit('SET_WAITING_FOR_BACKEND', false);
         // TODO: parse your server error to make it friendly
         this.$store.commit('SET_ERROR_FROM_BACKEND', error);
