@@ -73,6 +73,7 @@ export default {
 
     // TODO: ADD any extra data here you want to include from user
     postData["amountUSD"] = this.amountUSD;
+    postData["userWeb3Address"] = this.$store.state.web3Address;
     postData = JSON.stringify(postData);
 
     console.log("cc data posting to backend:",postData);

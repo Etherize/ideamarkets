@@ -71,6 +71,7 @@ export default {
     },
   loggedIn(address, fm){
     console.log("logged in with address", address);
+    this.$store.commit('SET_WEB_3_ADDRESS', address);
     this.address = address;
     var addressStart = address.substr(0, 4);
     var addressEnd = address.substr(38, 43);

@@ -43,7 +43,6 @@ export default {
       this.$store.commit('SET_PAYMENT_TYPE', 0)
     },
      onPay: function() {
-      this.$store.state.paymentCallbacks.forEach(callback=>callback('faketransaction', 'fakeamount '));
       this.$store.commit('SET_LOGIN_STEP', 2)
       }
     }
@@ -53,7 +52,7 @@ export default {
 <style scoped>
 .eth-title{
   margin-top: 2rem;
-  color: white; 
+  color: white;
   text-align: left;
 }
 

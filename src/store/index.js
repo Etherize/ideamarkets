@@ -9,10 +9,19 @@ const store = new Vuex.Store({
     paymentType: 0,
     loading:false,
     error:"",
-    serverResponse:[], // will be json object,
-    paymentInfo:null  // will be json object,
+    serverResponse:null, // will be json object,
+    paymentInfo:null,  // will be json object,
+    web3Address:"",
+    loginCallbacks:[],
   },
   mutations: {
+    SET_LOGIN_CALLBACK:(state,callback)=>{
+        console.log("added login callback");
+        state.loginCallbacks.unshift(callback);
+      },
+    SET_WEB_3_ADDRESS: (state, address) => {
+      state.web3Address = address;
+    },
     SET_LOGIN_STEP: (state, step) => {
         state.loginStep = step;
     },
