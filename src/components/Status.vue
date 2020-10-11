@@ -1,6 +1,6 @@
 <template>
   <b-container class="status_bar">
-    <b-row cols="3" >
+    <b-row >
       <b-col><button  :class="{focus_button: this.$store.state.loginStep === 0}" class="status_button" v-on:click='onStepOne'></button></b-col>
       <b-col><button  :class="{focus_button: this.$store.state.loginStep === 1}" class="status_button" v-on:click='onStepTwo'></button></b-col>
       <b-col><button  :class="{focus_button: this.$store.state.loginStep === 2}" class="status_button" v-on:click='onStepThree'></button></b-col>

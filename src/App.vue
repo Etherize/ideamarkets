@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <b-container fluid class="d-flex h-75 my-auto mx-auto">
-      <b-row class="mx-auto">
+    <b-container>
+      <b-row class="align-self-center">
           <b-col class="align-self-center thickBorder">
             <ChartContainer/>
           </b-col>

@@ -15,7 +15,7 @@
     </b-row>
     <b-row cols="4" class="graph-text">
       <b-col>
-        <b-row>
+        <b-row> 
           <p class="topText">Trading At</p>
         </b-row>
         <b-row>
